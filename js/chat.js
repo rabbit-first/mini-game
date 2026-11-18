@@ -16,8 +16,10 @@
 	};
 	const WORKPLACE_SCENES = new Set(['technical', 'meeting', 'bug', 'requirement']);
 	const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
-	const PRIMARY_MODEL = 'google/gemma-3-27b-it:free';
-	const FALLBACK_MODEL = 'qwen/qwen-2.5-7b-instruct:free';
+	//const PRIMARY_MODEL = 'meta-llama/llama-3.2-3b-instruct:free';
+	//const FALLBACK_MODEL = 'google/gemma-2-9b-it:free';
+	const PRIMARY_MODEL = 'nvidia/nemotron-3-ultra-550b-a55b:free';
+	const FALLBACK_MODEL = 'baidu/ernie-5.5-flash-preview:free';
 	const SYSTEM_PROMPT = `You are an AI English Coach for Software Engineers.
 
 Always:
@@ -165,10 +167,11 @@ Scores must be integers from 0 to 100. When the current scene is technical, a bu
 		try {
 			return await requestOpenRouterModel(PRIMARY_MODEL, apiKey, requestMessages, scene);
 		} catch (primaryError) {
-			if (primaryError.message === 'Invalid OpenRouter API Key.' || primaryError.message === 'OpenRouter free quota exceeded.') {
-				throw primaryError;
+			try {
+				return await requestOpenRouterModel(FALLBACK_MODEL, apiKey, requestMessages, scene);
+			} catch (fallbackError) {
+				throw new Error('No free model is currently available.');
 			}
-			return requestOpenRouterModel(FALLBACK_MODEL, apiKey, requestMessages, scene);
 		}
 	}
 
