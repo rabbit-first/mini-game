@@ -15,6 +15,7 @@
 	<script defer src="js/english.js"></script>
 	<script defer src="js/grammar.js"></script>
 	<script defer src="js/chat.js"></script>
+	<script defer src="js/settings.js"></script>
 	<script defer src="js/main.js"></script>
 </head>
 <body>
@@ -33,6 +34,7 @@
 			<div class="top-profile" aria-label="玩家数据">
 				<span class="top-level"><span class="status-dot"></span>LV <span data-level>1</span></span>
 				<span class="top-coins"><span class="coin-icon" aria-hidden="true">◆</span><span data-coins>0</span></span>
+				<button class="settings-quick-button" type="button" data-open-game="settings" aria-label="Open Settings" title="Settings">⚙</button>
 			</div>
 		</header>
 
@@ -304,6 +306,31 @@
 				<p class="reward-note"><span aria-hidden="true">◆</span> Correct vocabulary: +10 Gold / +5 XP. Complete an engineer practice: +20 XP.</p>
 			</section>
 		</main>
+
+		<section class="page game-page settings-page" data-page="settings" aria-labelledby="settings-title" hidden>
+			<button class="back-button" type="button" data-back-home><span aria-hidden="true">←</span> 返回大厅</button>
+			<div class="game-screen-header">
+				<p class="eyebrow"><span class="eyebrow-line"></span> ACCOUNT / CONFIGURATION</p>
+				<h1 id="settings-title">Settings<span>。</span></h1>
+				<p>Manage the OpenRouter connection used by AI English Coach.</p>
+			</div>
+			<section class="play-panel settings-panel" aria-labelledby="openrouter-settings-title">
+				<div class="settings-heading">
+					<div><span class="mini-label">AI PROVIDER</span><h2 id="openrouter-settings-title">OpenRouter API Key</h2></div>
+					<span class="mock-label">STORED LOCALLY</span>
+				</div>
+				<form id="settings-form" class="settings-form">
+					<label for="openrouter-api-key">API Key</label>
+					<div class="settings-key-row">
+						<input id="openrouter-api-key" name="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="sk-or-v1-…">
+						<button class="button button-primary" id="settings-save" type="submit">Save</button>
+					</div>
+					<button class="button button-quiet settings-test-button" id="settings-test" type="button">Test Connection <span aria-hidden="true">↗</span></button>
+					<p class="settings-status" id="settings-status" role="status" aria-live="polite"></p>
+				</form>
+				<p class="module-disclaimer">The key is saved in this browser’s local storage and is used directly from this page.</p>
+			</section>
+		</section>
 
 		<div class="toast" id="toast" role="status" aria-live="polite"></div>
 	</div>

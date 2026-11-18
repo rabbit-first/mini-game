@@ -461,6 +461,24 @@ h1, h2, h3, p { margin-top: 0; }
 .english-art .word-star { color: var(--lime); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
 
+.settings-quick-button { display: grid; width: 30px; height: 30px; place-items: center; padding: 0; border: 1px solid var(--line); background: transparent; color: var(--muted); font-size: 15px; cursor: pointer; }
+.settings-quick-button:hover { border-color: var(--lime-deep); color: var(--lime); }
+.settings-page { width: min(620px, 100%); }
+.settings-page .game-screen-header h1 span { color: var(--lime); }
+.settings-panel { padding: 24px; }
+.settings-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 22px; }
+.settings-heading h2 { margin: 5px 0 0; font-size: 17px; font-weight: 600; }
+.settings-form { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; }
+.settings-form > label { color: var(--muted); font-size: 10px; }
+.settings-key-row { display: grid; width: 100%; grid-template-columns: minmax(0, 1fr) auto; gap: 9px; }
+.settings-key-row input { width: 100%; min-width: 0; min-height: 44px; padding: 0 12px; border: 1px solid var(--line-bright); border-radius: 0; background: #151815; color: var(--text); font-family: var(--font-mono); font-size: 11px; }
+.settings-key-row input::placeholder { color: var(--muted-dark); }
+.settings-test-button { min-width: 145px; }
+.settings-status { min-height: 17px; margin: 2px 0 0; color: var(--muted); font-size: 10px; }
+.settings-status.is-success { color: var(--lime); }
+.settings-status.is-error { color: var(--red); }
+.settings-panel > .module-disclaimer { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+
 @media (max-width: 920px) {
 	.english-layout { grid-template-columns: minmax(0, 1fr); }
 	.english-sidebar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
@@ -490,4 +508,5 @@ h1, h2, h3, p { margin-top: 0; }
 	.practice-scenario { min-height: 36px; font-size: 8px; }
 	.english-sidebar { grid-template-columns: minmax(0, 1fr); }
 	.mission-panel, .achievement-panel { padding: 15px; }
+	.settings-panel { padding: 18px 14px; }
 }
