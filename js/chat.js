@@ -16,10 +16,12 @@
 	};
 	const WORKPLACE_SCENES = new Set(['technical', 'meeting', 'bug', 'requirement']);
 	const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
-	//const PRIMARY_MODEL = 'meta-llama/llama-3.2-3b-instruct:free';
-	//const FALLBACK_MODEL = 'google/gemma-2-9b-it:free';
-	const PRIMARY_MODEL = 'nvidia/nemotron-3-ultra-550b-a55b:free';
-	const FALLBACK_MODEL = 'baidu/ernie-5.5-flash-preview:free';
+	const CURRENT_MODEL_KEY = 'openrouter_current_model';
+	const MODELS = [
+		'nvidia/nemotron-3-ultra-550b-a55b:free',
+		'baidu/ernie-5.5-flash-preview:free',
+		'nvidia/llama-3.1-nemotron-nano-8b-v1:free'
+	];
 	const SYSTEM_PROMPT = `You are an AI English Coach for Software Engineers.
 
 Always:
@@ -164,15 +166,17 @@ Scores must be integers from 0 to 100. When the current scene is technical, a bu
 			{ role: 'user', content: message }
 		];
 
-		try {
-			return await requestOpenRouterModel(PRIMARY_MODEL, apiKey, requestMessages, scene);
-		} catch (primaryError) {
+		for (const model of MODELS) {
 			try {
-				return await requestOpenRouterModel(FALLBACK_MODEL, apiKey, requestMessages, scene);
-			} catch (fallbackError) {
-				throw new Error('No free model is currently available.');
+				const feedback = await requestOpenRouterModel(model, apiKey, requestMessages, scene);
+				localStorage.setItem(CURRENT_MODEL_KEY, model);
+				window.dispatchEvent(new CustomEvent('openrouter:model-used', { detail: { model } }));
+				return feedback;
+			} catch (error) {
+				continue;
 			}
 		}
+		throw new Error('No OpenRouter free models are currently available.');
 	}
 
 	function createSection(title, icon, variant, content) {

@@ -319,14 +319,24 @@
 					<div><span class="mini-label">AI PROVIDER</span><h2 id="openrouter-settings-title">OpenRouter API Key</h2></div>
 					<span class="mock-label">STORED LOCALLY</span>
 				</div>
+				<div class="settings-current-model">
+					<span class="mini-label">CURRENT MODEL</span>
+					<strong id="settings-current-model">Not used yet</strong>
+				</div>
 				<form id="settings-form" class="settings-form">
 					<label for="openrouter-api-key">API Key</label>
 					<div class="settings-key-row">
 						<input id="openrouter-api-key" name="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="sk-or-v1-…">
+						<button class="button button-quiet settings-visibility-button" id="settings-key-visibility" type="button" aria-label="Show API Key" aria-pressed="false" title="Show API Key">
+							<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 10.6a2 2 0 002.8 2.8M9.9 5.2A10.7 10.7 0 0112 5c5.5 0 9 7 9 7a13.6 13.6 0 01-3 3.8M6.2 6.2C3.9 7.8 3 12 3 12s3.5 7 9 7a9.9 9.9 0 003.1-.5"/></svg>
+						</button>
 						<button class="button button-primary" id="settings-save" type="submit">Save</button>
 					</div>
 					<button class="button button-quiet settings-test-button" id="settings-test" type="button">Test Connection <span aria-hidden="true">↗</span></button>
-					<p class="settings-status" id="settings-status" role="status" aria-live="polite"></p>
+					<div class="settings-status" id="settings-status" data-state="not-tested" role="status" aria-live="polite">
+						<strong id="settings-status-text">⚪ Not Tested</strong>
+						<p id="settings-status-detail"></p>
+					</div>
 				</form>
 				<p class="module-disclaimer">The key is saved in this browser’s local storage and is used directly from this page.</p>
 			</section>

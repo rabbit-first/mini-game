@@ -468,15 +468,23 @@ h1, h2, h3, p { margin-top: 0; }
 .settings-panel { padding: 24px; }
 .settings-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 22px; }
 .settings-heading h2 { margin: 5px 0 0; font-size: 17px; font-weight: 600; }
+.settings-current-model { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.settings-current-model strong { overflow-wrap: anywhere; color: var(--text); font-family: var(--font-mono); font-size: 11px; font-weight: 400; }
 .settings-form { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; }
 .settings-form > label { color: var(--muted); font-size: 10px; }
-.settings-key-row { display: grid; width: 100%; grid-template-columns: minmax(0, 1fr) auto; gap: 9px; }
+.settings-key-row { display: grid; width: 100%; grid-template-columns: minmax(0, 1fr) 44px auto; gap: 9px; }
 .settings-key-row input { width: 100%; min-width: 0; min-height: 44px; padding: 0 12px; border: 1px solid var(--line-bright); border-radius: 0; background: #151815; color: var(--text); font-family: var(--font-mono); font-size: 11px; }
 .settings-key-row input::placeholder { color: var(--muted-dark); }
+.settings-visibility-button { width: 44px; min-height: 44px; padding: 0; color: var(--muted); }
+.settings-visibility-button:hover:not(:disabled) { border-color: var(--line-bright); color: var(--text); }
+.settings-visibility-button svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
 .settings-test-button { min-width: 145px; }
-.settings-status { min-height: 17px; margin: 2px 0 0; color: var(--muted); font-size: 10px; }
-.settings-status.is-success { color: var(--lime); }
-.settings-status.is-error { color: var(--red); }
+.settings-status { display: flex; min-height: 46px; flex-direction: column; justify-content: center; gap: 4px; margin: 5px 0 0; color: var(--muted); font-size: 10px; }
+.settings-status strong { color: var(--text); font-size: 11px; font-weight: 500; }
+.settings-status p { min-height: 14px; margin: 0; color: var(--muted); line-height: 1.5; overflow-wrap: anywhere; }
+.settings-status[data-state="connected"] strong { color: var(--lime); }
+.settings-status[data-state="invalid-key"] strong, .settings-status[data-state="insufficient-balance"] strong { color: var(--red); }
+.settings-status[data-state="model-unavailable"] strong { color: var(--orange); }
 .settings-panel > .module-disclaimer { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
 
 @media (max-width: 920px) {
