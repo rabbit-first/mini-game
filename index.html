@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#101210">
+	<meta name="description" content="Mini Game Hub：随时开始一场轻松有趣的迷你游戏。">
+	<title>Mini Game Hub | 迷你游戏大厅</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<script defer src="js/guess.js"></script>
+	<script defer src="js/eat.js"></script>
+	<script defer src="js/english.js"></script>
+	<script defer src="js/grammar.js"></script>
+	<script defer src="js/chat.js"></script>
+	<script defer src="js/main.js"></script>
+</head>
+<body>
+	<div class="app-shell">
+		<header class="topbar">
+			<a class="brand" href="#home" aria-label="Mini Game Hub 首页" data-back-home>
+				<span class="brand-mark" aria-hidden="true">M<span>+</span></span>
+				<span class="brand-name">MINI<span>GAME HUB</span></span>
+			</a>
+
+			<nav class="top-nav" aria-label="主导航">
+				<button class="nav-link is-active" type="button" data-back-home>大厅</button>
+				<a class="nav-link nav-link-muted" href="#games">游戏</a>
+			</nav>
+
+			<div class="top-profile" aria-label="玩家数据">
+				<span class="top-level"><span class="status-dot"></span>LV <span data-level>1</span></span>
+				<span class="top-coins"><span class="coin-icon" aria-hidden="true">◆</span><span data-coins>0</span></span>
+			</div>
+		</header>
+
+		<main id="main-content">
+			<section class="page home-page" data-page="home" aria-labelledby="welcome-title">
+				<div class="welcome-row">
+					<div class="welcome-copy">
+						<p class="eyebrow"><span class="eyebrow-line"></span> YOUR POCKET ARCADE</p>
+						<h1 id="welcome-title">今天，<span>玩点什么？</span></h1>
+						<p class="welcome-subtitle">三分钟开一局，把日常变成一点小小的胜利。</p>
+					</div>
+					<div class="daily-card">
+						<div class="daily-icon" aria-hidden="true">✦</div>
+						<div class="daily-copy">
+							<span class="mini-label">每日登录奖励</span>
+							<strong id="daily-status">今日奖励待领取</strong>
+							<span class="daily-reward">+30 金币 <span>·</span> +20 经验</span>
+						</div>
+						<button class="button button-daily" id="daily-claim" type="button">领取奖励 <span aria-hidden="true">↗</span></button>
+					</div>
+				</div>
+
+				<section class="player-panel" aria-label="玩家成长信息">
+					<div class="player-identity">
+						<div class="avatar" aria-hidden="true">P<span>1</span></div>
+						<div>
+							<p class="mini-label">PLAYER PROFILE</p>
+							<h2>街机新手 <span class="level-badge">LV <span data-level>1</span></span></h2>
+						</div>
+					</div>
+					<div class="player-progress">
+						<div class="progress-heading">
+							<span>升级进度</span>
+							<span class="progress-numbers"><b data-xp>0</b> <span>/</span> <span data-xp-needed>80</span> XP</span>
+						</div>
+						<div class="progress-track" role="progressbar" aria-label="升级经验" aria-valuemin="0" aria-valuemax="80" aria-valuenow="0" data-xp-bar>
+							<span class="progress-fill" data-xp-fill></span>
+						</div>
+						<p class="progress-caption">每一次尝试，都离下一等级更近一步。</p>
+					</div>
+					<div class="coin-balance">
+						<span class="mini-label">COIN BALANCE</span>
+						<strong><span class="coin-icon" aria-hidden="true">◆</span><span data-coins>0</span></strong>
+					</div>
+				</section>
+
+				<section class="games-section" id="games" aria-labelledby="games-title">
+					<div class="section-heading">
+						<div>
+							<p class="eyebrow"><span class="eyebrow-line"></span> PICK YOUR NEXT RUN</p>
+							<h2 id="games-title">游戏 <span class="heading-count">03</span></h2>
+						</div>
+						<p class="section-note">轻松开局，随时回来。</p>
+					</div>
+
+					<div class="game-grid">
+						<article class="game-card game-card-guess">
+							<div class="card-topline"><span class="game-index">01 / ARCADE</span><span class="game-tag">脑力热身</span></div>
+							<div class="game-art guess-art" aria-hidden="true"><span class="guess-question">?</span><span class="guess-number guess-number-one">27</span><span class="guess-number guess-number-two">84</span><span class="guess-spark">✳</span></div>
+							<div class="game-card-copy">
+								<h3>猜数字<span class="game-arrow" aria-hidden="true">↗</span></h3>
+								<p>读懂提示，找到藏在 1 到 100 之间的答案。</p>
+								<div class="card-footer"><span class="reward-chip"><span aria-hidden="true">◆</span> +24 金币</span><span class="reward-xp">+35 XP</span></div>
+							</div>
+							<button class="card-hit-area" type="button" data-open-game="guess" aria-label="开始猜数字"></button>
+						</article>
+
+						<article class="game-card game-card-eat">
+							<div class="card-topline"><span class="game-index">02 / RANDOM</span><span class="game-tag">选择困难终结者</span></div>
+							<div class="game-art eat-art" aria-hidden="true"><span class="plate plate-back"></span><span class="plate plate-front"><span>✦</span></span><span class="food-leaf">✳</span><span class="food-dot">•</span></div>
+							<div class="game-card-copy">
+								<h3>今晚吃什么<span class="game-arrow" aria-hidden="true">↗</span></h3>
+								<p>让命运替你决定下一顿，30 种美味等你翻牌。</p>
+								<div class="card-footer"><span class="reward-chip"><span aria-hidden="true">◆</span> +4 金币</span><span class="reward-xp">好运转盘</span></div>
+							</div>
+							<button class="card-hit-area" type="button" data-open-game="eat" aria-label="开始今晚吃什么"></button>
+						</article>
+
+						<article class="game-card game-card-word">
+							<div class="card-topline"><span class="game-index">03 / ENGLISH LAB</span><span class="game-tag">工程师英语</span></div>
+							<div class="game-art word-art english-art" aria-hidden="true"><span class="coach-emoji">🤖</span><span class="word-star">✦</span></div>
+							<div class="game-card-copy">
+								<h3>AI English Coach<span class="game-arrow" aria-hidden="true">↗</span></h3>
+								<p>练习软件工程词汇、语法、技术沟通与英文表达。</p>
+								<div class="card-footer"><span class="reward-chip"><span aria-hidden="true">◆</span> +10 Gold</span><span class="reward-xp">+5 XP / word</span></div>
+							</div>
+							<button class="card-hit-area" type="button" data-open-game="english" aria-label="打开 AI English Coach"></button>
+						</article>
+
+						<article class="game-card game-card-soon" aria-label="更多游戏，敬请期待">
+							<div class="card-topline"><span class="game-index">04 / INCOMING</span><span class="game-tag">敬请期待</span></div>
+							<div class="game-art soon-art" aria-hidden="true"><span>+</span><i>+</i><b>+</b></div>
+							<div class="game-card-copy">
+								<h3>更多游戏<span class="game-arrow" aria-hidden="true">···</span></h3>
+								<p>新挑战正在路上，先把今日任务玩个痛快。</p>
+								<div class="card-footer"><span class="coming-chip">COMING SOON</span></div>
+							</div>
+						</article>
+					</div>
+				</section>
+
+				<footer class="home-footer">
+					<span>MINI GAME HUB <i>·</i> MADE FOR LITTLE BREAKS</span>
+					<span class="achievement-placeholder"><span aria-hidden="true">⌑</span> 成就系统建设中</span>
+				</footer>
+			</section>
+
+			<section class="page game-page" data-page="guess" aria-labelledby="guess-title" hidden>
+				<button class="back-button" type="button" data-back-home><span aria-hidden="true">←</span> 返回大厅</button>
+				<div class="game-screen-header">
+					<p class="eyebrow"><span class="eyebrow-line"></span> GAME 01 / ARCADE</p>
+					<h1 id="guess-title">猜数字<span>。</span></h1>
+					<p>我想了一个 1 到 100 之间的数字。你能用几次找到它？</p>
+				</div>
+				<div class="play-panel guess-panel">
+					<div class="guess-display">
+						<span class="mini-label">MYSTERY NUMBER</span>
+						<div class="mystery-number" id="guess-display">?</div>
+						<p class="game-feedback" id="guess-feedback" aria-live="polite">输入一个数字，开始挑战。</p>
+					</div>
+					<form class="guess-form" id="guess-form">
+						<label for="guess-input">你的猜测 <span>1 - 100</span></label>
+						<div class="guess-controls">
+							<input id="guess-input" type="number" min="1" max="100" inputmode="numeric" placeholder="比如 42" autocomplete="off" required>
+							<button class="button button-primary" type="submit">提交猜测 <span aria-hidden="true">↗</span></button>
+						</div>
+					</form>
+					<div class="guess-bottom-row">
+						<div class="attempt-counter"><span class="mini-label">猜测次数</span><strong id="guess-attempts">0 <small>次</small></strong></div>
+						<button class="button button-quiet" id="guess-restart" type="button">重新开始 <span aria-hidden="true">↻</span></button>
+					</div>
+					<div class="guess-history-wrap"><span class="mini-label">本局记录</span><div class="guess-history" id="guess-history"><span class="history-empty">还没有猜测记录</span></div></div>
+				</div>
+				<p class="reward-note"><span aria-hidden="true">◆</span> 猜中可获得 24 金币和 35 经验。</p>
+			</section>
+
+			<section class="page game-page" data-page="eat" aria-labelledby="eat-title" hidden>
+				<button class="back-button" type="button" data-back-home><span aria-hidden="true">←</span> 返回大厅</button>
+				<div class="game-screen-header">
+					<p class="eyebrow"><span class="eyebrow-line"></span> GAME 02 / RANDOM</p>
+					<h1 id="eat-title">今晚吃什么<span>？</span></h1>
+					<p>闭上眼，交给随机数。今天的胃口，就由它来安排。</p>
+				</div>
+				<div class="play-panel eat-panel">
+					<div class="food-orbit" aria-hidden="true"><span class="food-orbit-center">✦</span><i>✳</i><b>·</b></div>
+					<span class="mini-label">TONIGHT'S PICK</span>
+					<div class="food-result" id="food-result" aria-live="polite">准备好了吗？</div>
+					<p class="food-caption" id="food-caption">30 种常见美味，随机抽取一个。</p>
+					<button class="button button-primary button-spin" id="food-spin" type="button">开始抽选 <span aria-hidden="true">↻</span></button>
+					<p class="spin-count">已帮你决定 <strong id="food-spins">0</strong> 次晚餐</p>
+				</div>
+				<p class="reward-note"><span aria-hidden="true">◆</span> 完成一次抽选可获得 4 金币。</p>
+			</section>
+
+			<section class="page game-page english-page" data-page="english" aria-labelledby="english-title" hidden>
+				<button class="back-button" type="button" data-back-home><span aria-hidden="true">←</span> 返回大厅</button>
+				<div class="game-screen-header">
+					<p class="eyebrow"><span class="eyebrow-line"></span> ENGINEER ENGLISH / LEARNING LAB</p>
+					<h1 id="english-title">AI English Coach<span>。</span></h1>
+					<p>Build the English you need to design, debug and ship software.</p>
+				</div>
+
+				<div class="english-layout">
+					<div class="english-main-column">
+						<nav class="english-tabs" aria-label="英语学习模块">
+							<button class="english-tab is-active" type="button" data-english-tab="vocabulary" aria-selected="true">Vocabulary</button>
+							<button class="english-tab" type="button" data-english-tab="grammar" aria-selected="false">Grammar</button>
+							<button class="english-tab" type="button" data-english-tab="conversation" aria-selected="false">Conversation</button>
+							<button class="english-tab" type="button" data-english-tab="practice" aria-selected="false">Engineer English</button>
+						</nav>
+
+						<section class="play-panel english-panel" data-english-panel="vocabulary" aria-labelledby="vocabulary-title">
+							<div class="english-panel-heading">
+								<div><span class="mini-label">VOCABULARY TRAINER</span><h2 id="vocabulary-title">Technical words</h2></div>
+								<label class="category-select-label" for="vocabulary-category">Category
+									<select id="vocabulary-category">
+										<option value="all">All categories</option>
+										<option>Software Development</option><option>Debugging</option><option>Requirement</option>
+										<option>Design</option><option>Testing</option><option>Automotive Software</option><option>Project Management</option>
+									</select>
+								</label>
+							</div>
+							<div class="vocabulary-progress"><span id="vocabulary-position">WORD 1</span><span id="vocabulary-learned">0 learned</span></div>
+							<div class="vocabulary-question">
+								<span class="vocabulary-category" id="vocabulary-word-category">Software Development</span>
+								<h3 id="vocabulary-word">Requirement</h3>
+								<p class="vocabulary-prompt">Choose the correct meaning.</p>
+								<div class="vocabulary-options" id="vocabulary-options"></div>
+								<div class="vocabulary-feedback" id="vocabulary-feedback" aria-live="polite" hidden></div>
+								<button class="button button-primary vocabulary-next" id="vocabulary-next" type="button" hidden>Next word <span aria-hidden="true">↗</span></button>
+							</div>
+							<div class="vocabulary-stats" aria-label="词汇统计">
+								<div><span class="mini-label">TOTAL ANSWERED</span><strong id="vocabulary-answered">0</strong></div>
+								<div><span class="mini-label">ACCURACY</span><strong id="vocabulary-accuracy">0%</strong></div>
+								<div><span class="mini-label">WORDS LEARNED</span><strong id="vocabulary-total-learned">0</strong></div>
+							</div>
+						</section>
+
+						<section class="play-panel english-panel grammar-panel" data-english-panel="grammar" aria-labelledby="grammar-title" hidden>
+							<div class="english-panel-heading"><div><span class="mini-label">GRAMMAR CHECKER</span><h2 id="grammar-title">Polish a sentence</h2></div><span class="mock-label">LOCAL DEMO</span></div>
+							<form id="grammar-form" class="grammar-form">
+								<label for="grammar-input">Your English sentence</label>
+								<textarea id="grammar-input" rows="4" maxlength="500" placeholder="I study Python yesterday." required></textarea>
+								<button class="button button-primary" type="submit">Check Grammar <span aria-hidden="true">↗</span></button>
+							</form>
+							<div class="grammar-result" id="grammar-result" aria-live="polite" hidden>
+								<span class="mini-label">CORRECTION</span><p class="grammar-correction" id="grammar-correction"></p>
+									<span class="mini-label">EXPLANATION</span><p class="grammar-explanation" id="grammar-explanation"></p>
+							</div>
+							<p class="module-disclaimer">Responses use built-in examples for now. The <code>callAI()</code> adapter is ready for a future provider.</p>
+						</section>
+
+						<section class="play-panel english-panel conversation-panel" data-english-panel="conversation" aria-labelledby="conversation-title" hidden>
+							<div class="english-panel-heading"><div><span class="mini-label">AI CONVERSATION PRACTICE</span><h2 id="conversation-title">Practice a real conversation</h2></div><span class="mock-label">OPENROUTER</span></div>
+							<label class="scene-select-label" for="conversation-scene">Choose a scene
+								<select id="conversation-scene">
+									<option value="daily">Daily English</option><option value="technical">Technical English</option><option value="meeting">Technical Meeting</option>
+									<option value="bug">Bug Discussion</option><option value="requirement">Requirement Discussion</option>
+									<option value="email">Email Writing</option><option value="interview">Interview</option>
+								</select>
+							</label>
+							<div class="chat-messages" id="chat-messages" role="log" aria-label="Conversation history" aria-live="polite" aria-relevant="additions"></div>
+							<form class="chat-form" id="chat-form">
+								<label class="sr-only" for="chat-input">Write a message</label>
+								<textarea id="chat-input" rows="2" maxlength="600" placeholder="Ask a question or describe a situation…" required></textarea>
+								<button class="button button-primary" type="submit" aria-label="Send message">Send <span aria-hidden="true">↗</span></button>
+							</form>
+							<p class="module-disclaimer">Messages are sent to OpenRouter for processing with the API Key stored in this browser.</p>
+						</section>
+
+						<section class="play-panel english-panel practice-panel" data-english-panel="practice" aria-labelledby="practice-title" hidden>
+							<div class="english-panel-heading"><div><span class="mini-label">SOFTWARE ENGINEER ENGLISH</span><h2 id="practice-title">Say it with clarity</h2></div></div>
+							<div class="practice-layout">
+								<div class="practice-scenarios" role="tablist" aria-label="Engineer English scenarios">
+									<button type="button" class="practice-scenario is-active" data-practice-id="bug" role="tab" aria-selected="true">Bug Report</button>
+									<button type="button" class="practice-scenario" data-practice-id="root" role="tab" aria-selected="false">Root Cause Analysis</button>
+									<button type="button" class="practice-scenario" data-practice-id="meeting" role="tab" aria-selected="false">Technical Meeting</button>
+									<button type="button" class="practice-scenario" data-practice-id="requirements" role="tab" aria-selected="false">Requirement Discussion</button>
+									<button type="button" class="practice-scenario" data-practice-id="email" role="tab" aria-selected="false">Email Writing</button>
+								</div>
+								<div class="practice-content" role="tabpanel">
+									<span class="mini-label">SCENARIO</span><p id="practice-prompt" class="practice-prompt"></p>
+									<div class="practice-answer"><span class="mini-label">SUGGESTED ANSWER</span><p id="practice-suggested"></p></div>
+									<div class="practice-answer is-better"><span class="mini-label">BETTER ANSWER</span><p id="practice-better"></p></div>
+									<div class="practice-answer is-native"><span class="mini-label">NATIVE VERSION</span><p id="practice-native"></p></div>
+									<button class="button button-primary" id="practice-complete" type="button">Complete practice <span aria-hidden="true">↗</span></button>
+								</div>
+							</div>
+						</section>
+					</div>
+
+					<aside class="english-sidebar" aria-label="Learning progress">
+						<section class="play-panel mission-panel" aria-labelledby="mission-title">
+							<div class="sidebar-heading"><div><span class="mini-label">DAILY LEARNING MISSION</span><h2 id="mission-title">Today’s goals</h2></div><span class="mission-date" id="mission-date"></span></div>
+							<ul class="mission-list">
+								<li data-mission-item="words"><span class="mission-check" aria-hidden="true">✓</span><span><strong>Learn 5 technical words</strong><small><span data-mission-progress="words">0 / 5</span> learned today</small></span></li>
+								<li data-mission-item="grammar"><span class="mission-check" aria-hidden="true">✓</span><span><strong>Complete 1 grammar check</strong><small><span data-mission-progress="grammar">0 / 1</span> completed</small></span></li>
+								<li data-mission-item="conversation"><span class="mission-check" aria-hidden="true">✓</span><span><strong>Finish 1 conversation</strong><small><span data-mission-progress="conversation">0 / 1</span> completed</small></span></li>
+							</ul>
+							<div class="mission-footer"><span>Reward <b>+50 Gold</b> <b>+30 XP</b></span><button class="button button-primary mission-claim" id="mission-claim" type="button" disabled>Claim</button></div>
+							<p class="mission-note" id="mission-note" aria-live="polite">Complete all three goals to claim today's reward.</p>
+						</section>
+						<section class="play-panel achievement-panel" aria-labelledby="english-achievements-title">
+							<div class="sidebar-heading"><div><span class="mini-label">ACHIEVEMENTS</span><h2 id="english-achievements-title">Learning badges</h2></div><span class="achievement-count" id="english-achievement-count">0 / 6</span></div>
+							<ul class="achievement-list" id="english-achievement-list"></ul>
+						</section>
+					</aside>
+				</div>
+				<p class="reward-note"><span aria-hidden="true">◆</span> Correct vocabulary: +10 Gold / +5 XP. Complete an engineer practice: +20 XP.</p>
+			</section>
+		</main>
+
+		<div class="toast" id="toast" role="status" aria-live="polite"></div>
+	</div>
+</body>
+</html>
